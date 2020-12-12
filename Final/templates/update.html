@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+  <head>
+    <title>Edit</title>
+
+    <a href='/'>Home</a>
+    <a href='/dashboard'>Dashboard</a>
+    <p>Current User: {{username}}</p>
+
+    <h1>Edit Post</h1>
+
+  </head>
+  <body>
+	<table>
+
+	{% for item in data %}
+	<tr>
+	<td>{{item.title}}</td>
+	<td>{{item.author}}</td>
+	<td>{{item.content}}</td>
+	<td>{{item.published_date}}</td>
+	
+
+	<form action="/update/<e_title>/<e_author>?" method="POST">
+   	<input type="text" name="title">Title</input>
+	<input type="hidden" value="{{item.title}}" name="e_title"}</input>
+	<input type="hidden" value="{{item.author}}" name="e_author"}</input>
+   	<input type="text" name="author">Author</input>
+   	<input type="text" name="content">Content</input>
+   	<input type="date" name="published_date">Date Published</input>
+   	<input type="submit" value="Update Post">
+  	</form>
+
+	</tr>
+	{% endfor %}
+	
+	</table>
+
+
+
+  </body>
+</html>

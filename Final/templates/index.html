@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+  <head>
+    <title>Posts</title>
+
+    <a href='/dashboard'>Dashboard</a>
+    <a href='/logout'>Log Out</a>
+    <p>Current User: {{username}}</p>
+    <h1>Here are all of the available posts</h1>
+
+  </head>
+  <body>
+
+	<table>
+
+	{% for item in data %}
+	<tr>
+	<td>{{item.title}}</td>
+	<td>{{item.author}}</td>
+	<td>{{item.content}}</td>
+	<td>{{item.published_date}}</td>
+	</tr>
+	{% endfor %}
+	
+	</table>
+	
+
+
+
+  </body>
+</html>

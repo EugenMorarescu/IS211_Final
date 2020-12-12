@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+<head>
+
+    <title>Dashboard</title>
+
+</head>
+
+  <body>
+	
+	<a href='/'>Home</a>
+	<p>Current User: {{username}}</p>
+
+	<h1>List of user posts</h1>
+	<a href='/add'>Add Post</a></br>
+
+	{% for item in data %}
+	<tr>
+
+	<td>{{item.title}}
+
+	<form action="/delete" method="POST">
+	<input type="submit" value="Delete"</input>
+	<input type="hidden" value="{{item.title}}" name="del_title"}</input>
+	<input type="hidden" value="{{item.author}}" name="del_author"}</input>
+	</form>
+
+	<form action="/edit" method="POST">
+	<input type="submit" value="Edit"</input>
+	<input type="hidden" value="{{item.title}}" name="edit_title"}</input>
+	<input type="hidden" value="{{item.author}}" name="edit_author"}</input>
+	</form>
+
+	</td>
+
+	</tr>
+	{% endfor %}
+
+
+  </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
+  <head>
+    <title>Add Student</title>
+
+	<a href='/'>Home</a>
+	<a href='/dashboard'>Dashboard</a>
+	<p>Current User: {{username}}</p>
+
+
+  </head>
+
+  <body> 
+
+  <h1>Add Post</h1>
+
+  <form action="/add" method="POST">
+   <input type="text" name="title">Title</input>
+   <input type="text" name="author">Author</input>
+   <input type="text" name="content">Content</input>
+   <input type="date" name="published_date">Date Published</input>
+   <input type="submit" value="Add Post">
+  </form>
+
+
+  {% with messages=get_flashed_messages() %}
+	
+	{% if messages %}
+		{% for msg in messages %}
+			<p>{{msg}}</p>
+		{% endfor %}
+	{% endif %}
+  {% endwith %} 
+
+  </body>
+</html>
