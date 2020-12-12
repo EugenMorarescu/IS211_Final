@@ -7,4 +7,4 @@ log in, the username is checked against the known list of usernames and if it is
 If the username already exists, the database will not be updated and the user will be returned to the login prompt.
 I have also made it so that only the user and the admin account can add a new post under their username. If you attempt 
 to create a post on behalf of another username, the app will not let you unless you are signed in as admin.I added some 
-styling to the webpage to make it more presetenable as well.
+styling to the webpage to make it more presentable as well.
